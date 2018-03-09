@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>JavaScript Expression Evaluator - by Your Name</title>
+     <meta name="author" content="Kevin Kwok" />
+     <meta name="keywords" content="Project 1, CIS 242, Winter 2018" />
+     <meta name="description" content="A simple JavaScript Expression Evaluator" />
+<script type="text/javascript">
+<!--
+//<[CDATA[
+
+/*1. Called when the buttons are clicked.
+			function addChar(ch)
+      {
+
+				//document.forms[0].equation.value +=
+				return true;
+			}
+*/
+//2. Called when the evaluate button is clicked.
+			function evaluateEquation()
+      {
+
+      // Enter code to evaluate the equation
+      // see https://www.w3schools.com/jsref/jsref_eval.asp
+        if(document.forms[0].equation.value!="")
+        {
+          try
+          {
+            document.forms[0].equation.value=eval(document.forms[0].equation.value);
+            return true;
+				  }
+          //Enter code to display "Please enter a valid expression "
+          catch(errorMessage)
+          {
+            clearEquation();
+            document.forms[0].equation.value="Please enter a valid expression.";
+      		}
+        }
+        else
+        {
+          clearEquation();
+          document.forms[0].equation.value="Please enter a valid expression.";
+        }
+
+			}
+//3. Called when the clear button is clicked.
+			function clearEquation()
+      {
+      // Enter code to clear the equation
+        document.forms[0].equation.value="";
+				return true;
+			}
+//]]>
+-->
+</script>
+</head>
+
+<body style="background-color: #FAFAD2;">
+<div  style="padding:25px">
+  <div style="background-color: #FAFAD2; border: thin solid Black; width: 500px;padding:25px">
+    <h2 style="text-align: center">JavaScript Expression Evaluator</h2>
+    <h2 style="text-align: center">Kevin KWOK 02/15/2018</h2>
+  <form action="#">
+    <table style="width:500px; padding:5px 5px 5px 5px">
+        <tr style="text-align:center">
+            <td colspan="3" style="text-align:center">
+                <input type="text" name="equation" size="50" style="border-top: dashed; border-bottom: dashed; border-left: dashed; border-right: dashed; font-family: Arial; background-color: White; color:black; text-align:right; padding:5px" readonly="readonly" />
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3"> </td>
+        </tr>
+        <tr style="text-align:center">
+            <td><input type="button" name="seven" value=" 7 " style="width: 50px"
+              OnClick="equation.value+='7'"/></td>
+            <td ><input type="button" name="eight" value=" 8 " style="width: 50px"
+              OnClick="equation.value+='8'"/></td>
+            <td ><input type="button" name="nine" value=" 9 " style="width: 50px"
+              OnClick="equation.value+='9'"/></td>
+        </tr>
+        <tr style="text-align:center">
+            <td ><input type="button" name="four" value=" 4 " style="width: 50px"
+              OnClick="equation.value+='4'" /></td>
+            <td ><input type="button" name="five" value=" 5 " style="width: 50px"
+              OnClick="equation.value+='5'" /></td>
+            <td ><input type="button" name="six" value=" 6 " style="width: 50px"
+              OnClick="equation.value+='6'" /></td>
+        </tr>
+        <tr style="text-align:center">
+            <td ><input type="button" name="one" value=" 1 " style="width: 50px"
+              OnClick="equation.value+='1'" /></td>
+            <td ><input type="button" name="two" value=" 2 " style="width: 50px"
+              OnClick="equation.value+='2'"/></td>
+            <td ><input type="button" name="three" value=" 3 " style="width: 50px"
+              OnClick="equation.value+='3'" /></td>
+        </tr>
+        <tr style="text-align:center">
+            <td > </td>
+            <td ><input type="button" name="zero" value=" 0 " style="width: 50px"
+              OnClick="equation.value+='0'" /></td>
+              <!---This needs to call a function to prevent multiple dot insertions.-->
+            <td ><input type="button" name="dot" value=" . " style="width: 50px"
+              OnClick="equation.value+='.'" /></td>
+        </tr>
+        <tr style="text-align:center">
+            <td  colspan="3"><hr /></td>
+        </tr>
+    </table>
+    <table style="width:500px; padding:5px 5px 5px 5px">
+        <tr style="text-align:center">
+            <td ><input type="button" name="division" value=" / " style="width: 50px"
+              OnClick="equation.value+='/'"/></td>
+            <td ><input type="button" name="multiplication" value=" * " style="width: 50px"
+              OnClick="equation.value+='*'"/></td>
+            <td ><input type="button" name="subtraction" value=" - " style="width: 50px"
+              OnClick="equation.value+='-'" /></td>
+            <td ><input type="button" name="addition" value=" + " style="width: 50px"
+              OnClick="equation.value+='+'"/></td>
+        </tr>
+        <tr style="text-align:center">
+            <td ><input type="button" name="openPar" value=" ( " style="width: 50px"
+              OnClick="equation.value+='('" /></td>
+            <td ><input type="button" name="closePar" value=" ) " style="width: 50px"
+              OnClick="equation.value+=')'" /></td>
+            <td ><input type="button" name="compEqual" value=" == " style="width: 50px"
+              OnClick="equation.value+='=='" /></td>
+            <td ><input type="button" name="modulus" value=" % " style="width: 50px"
+              OnClick="equation.value+='%'" /></td>
+        </tr>
+        <tr style="text-align:center">
+            <td ><input type="button" name="lessThan" value=" < " style="width: 50px"
+              OnClick="equation.value+='<'"/></td>
+            <td ><input type="button" name="equal" value=" = " style="width: 50px"
+              OnClick="equation.value+='='" /></td>
+            <td ><input type="button" name="greaterThan" value=" > " style="width: 50px"
+              OnClick="equation.value+='>'" /></td>
+            <td ><input type="button" name="or" value=" || "  style="width: 50px"
+              OnClick="equation.value+='||'"/></td>
+        </tr>
+        <tr style="text-align:center">
+            <td ><input type="button" name="true" value=" true " style="width: 50px"
+              OnClick="equation.value+='true'"/></td>
+            <td ><input type="button" name="false" value=" false " style="width: 50px"
+              OnClick="equation.value+='false'" /></td>
+            <td ><input type="button" name="not" value=" ! " style="width: 50px"
+              OnClick="equation.value+='!'" /></td>
+
+            <td ><input type="button" name="and" value=" &amp;&amp; "  style="width: 50px"
+              OnClick="equation.value+='&amp;&amp;'" /></td>
+        </tr>
+          <tr style="text-align:center">
+            <td colspan="4"><hr /></td>
+        </tr>
+        <tr style="text-align:center">
+            <td colspan="2" ><input type="button" name="eval" value="evaluate"
+              OnClick="evaluateEquation()"/></td>
+            <td colspan="2" ><input type="button" name="clear" value="clear"
+              OnClick="clearEquation()" /></td>
+        </tr>
+        <tr style="text-align:center">
+            <td colspan="3"> </td>
+        </tr>
+    </table>
+    </form>
+</div>
+</div>
+</body>
+</html>
